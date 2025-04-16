@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Событие щелчка мыши</title>
+  <style>
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+    }
+    h1 {
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Щелкните в любом месте страницы!</h1>
+
+<script>
+  // Функция для обработки события щелчка
+  function showAlert() {
+      alert('Был щелчок!');
+  }
+
+  // Добавляем обработчик события на весь документ
+  document.addEventListener('click', showAlert);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Виноградов Алексей</title>
+  <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        margin-top: 50px;
+    }
+    input {
+        margin: 5px;
+        padding: 10px;
+        font-size: 16px;
+    }
+    button {
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Введите зарплату за первые 6 месяцев года</h1>
+
+<form id="salaryForm">
+  <input type="number" id="month1" placeholder="Январь" value="300" required>
+  <input type="number" id="month2" placeholder="Февраль" value="200" required>
+  <input type="number" id="month3" placeholder="Март" value="500" required>
+  <input type="number" id="month4" placeholder="Апрель" value="250" required>
+  <input type="number" id="month5" placeholder="Май" value="350" required>
+  <input type="number" id="month6" placeholder="Июнь" value="500" required>
+  <button type="button" onclick="calculateAverage()">Вычислить</button>
+</form>
+
+<h2>Средняя зарплата: <span id="averageSalary">0</span></h2>
+
+<script>
+  function calculateAverage() {
+      // Получаем значения зарплат из полей ввода
+      const month1 = parseFloat(document.getElementById('month1').value) || 0;
+      const month2 = parseFloat(document.getElementById('month2').value) || 0;
+      const month3 = parseFloat(document.getElementById('month3').value) || 0;
+      const month4 = parseFloat(document.getElementById('month4').value) || 0;
+      const month5 = parseFloat(document.getElementById('month5').value) || 0;
+      const month6 = parseFloat(document.getElementById('month6').value) || 0;
+
+      // Вычисляем среднюю зарплату
+      const average = (month1 + month2 + month3 + month4 + month5 + month6) / 6;
+
+      // Отображаем среднюю зарплату
+      document.getElementById('averageSalary').textContent = average.toFixed(2);
+  }
+</script>
+
+</body>
+</html>

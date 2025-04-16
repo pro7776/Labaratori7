@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section id="loader">
+    <div class="loader-bar" id="loaderBar"></div>
+</section>
+
+<main style="display: none;">
+    <!-- Начальная страница -->
+    <section id="start_page" class="start-page active">
+        <h1>Добро пожаловать!</h1>
+        <button id="registerBtn" onclick="startRegistration()">Начать регистрацию</button>
+    </section>
+
+    <!-- Индикатор прогресса -->
+    <div class="progress-indicator" id="progressIndicator"><div></div></div>
+
+    <!-- Шаг 1: Персональные данные -->
+    <section id="frame_1" class="registration-frame">
+        <h2>Персональные данные</h2>
+        <label for="first_name">Имя:</label>
+        <input type="text" id="first_name" required><br>
+
+        <label for="last_name">Фамилия:</label>
+        <input type="text" id="last_name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required><br>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" required><br>
+
+        <label for="confirm_password">Подтверждение пароля:</label>
+        <input type="password" id="confirm_password" required><br>
+
+        <label for="country">Страна:</label>
+        <input type="text" id="country" required><br>
+
+        <button id="nextBtn1" disabled onclick="nextStep(1)">Далее</button>
+        <button onclick="cancel()">Отмена</button>
+    </section>
+
+    <!-- Шаг 2: Телефонный номер -->
+    <section id="frame_2" class='registration-frame'>
+        <h2>Подтверждение телефонного номера</h2>
+        <label for='phone_number'>Номер телефона:</label>
+        <input type='tel' id='phone_number' required><br>
+
+        <button onclick='sendCode()'>Отправить</button>
+
+        <!-- Поле для ввода кода подтверждения -->
+        <div id='codeSection' style='display: none;'>
+            <label for='confirmation_code'>Код подтверждения:</label>
+            <input type='text' id='confirmation_code'><br>
+            <button onclick='checkCode()'>Проверить</button>
+            <button onclick='prevStep(1)'>Назад</button>
+            <button id='nextBtn2' disabled onclick='nextStep(2)'>Далее</button>
+        </div>
+    </section>
+
+    <!-- Шаг 3: Метод оплаты -->
+    <section id='frame_3' class='registration-frame'>
+        <h2>Метод оплаты</h2>
+
+        <!-- Поля для ввода номера карты -->
+        <input type='text' maxlength='4' oninput='moveToNext(this, "card_2")' placeholder='1234' />
+        -
+        <input type='text' maxlength='4' oninput='moveToNext(this, "card_3")' placeholder='5678' />
+        -
+        <input type='text' maxlength='4' oninput='moveToNext(this, "card_4")' placeholder='9012' />
+        -
+        <input type='text' maxlength='4' placeholder='3456' />
+
+        <!-- Кнопки -->
+        <button onclick='prevStep(2)'>Назад</button>
+        <button onclick='finishRegistration()'>Завершить</button>
+    </section>
+
+    <!-- Финал -->
+    <section id='final_frame' class='registration-frame'>
+        <h2>Регистрация успешно проведена!</h2>
+    </section>
+
+</main>
+
+<script src="./loader.js"></script> <!-- Файл с логикой лоадера -->
+<script src="./registration.js"></script> <!-- Файл с логикой регистрации -->
+
+</body>
+</html>

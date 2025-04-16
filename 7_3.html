@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Координаты нажатия мыши</title>
+  <style>
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+    }
+    #coordinates {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Нажмите на страницу, чтобы увидеть координаты мыши</h1>
+<div id="coordinates">Координаты: (X, Y)</div>
+
+<script>
+  // Получаем элемент для отображения координат
+  const coordinatesDiv = document.getElementById('coordinates');
+
+  // Добавляем обработчик события для клика по документу
+  document.addEventListener('click', function(event) {
+      // Получаем координаты курсора
+      const x = event.clientX; // Координата X
+      const y = event.clientY; // Координата Y
+
+      // Обновляем текст в элементе с координатами
+      coordinatesDiv.textContent = `Координаты: (${x}, ${y})`;
+  });
+</script>
+
+</body>
+</html>

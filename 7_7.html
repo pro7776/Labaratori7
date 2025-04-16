@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Настройка горизонтальной линии</title>
+  <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        margin-top: 50px;
+    }
+    .line {
+        height: 5px; /* Начальная высота */
+        background-color: black; /* Начальный цвет */
+        margin: 20px 0; /* Отступы сверху и снизу */
+    }
+  </style>
+</head>
+<body>
+
+<h1>Настройка горизонтальной линии</h1>
+
+<label for="length">Длина линии (в пикселях):</label>
+<input type="number" id="length" value="300" min="50" max="800">
+
+<label for="thickness">Толщина линии (в пикселях):</label>
+<input type="number" id="thickness" value="5" min="1" max="20">
+
+<label for="color">Цвет линии:</label>
+<select id="color">
+  <option value="black">Черный</option>
+  <option value="red">Красный</option>
+  <option value="green">Зеленый</option>
+  <option value="blue">Синий</option>
+  <option value="orange">Оранжевый</option>
+  <option value="purple">Фиолетовый</option>
+</select>
+
+<label for="alignment">Выравнивание:</label>
+<select id="alignment">
+  <option value="center">По центру</option>
+  <option value="left">Слева</option>
+  <option value="right">Справа</option>
+</select>
+
+<button onclick="updateLine()">Обновить линию</button>
+
+<div class="line" id="line"></div>
+
+<script>
+  function updateLine() {
+      const line = document.getElementById('line');
+      const length = document.getElementById('length').value;
+      const thickness = document.getElementById('thickness').value;
+      const color = document.getElementById('color').value;
+      const alignment = document.getElementById('alignment').value;
+
+      // Устанавливаем стили для линии
+      line.style.width = length + 'px';
+      line.style.height = thickness + 'px';
+      line.style.backgroundColor = color;
+
+      // Устанавливаем выравнивание
+      if (alignment === 'center') {
+          line.style.marginLeft = 'auto';
+          line.style.marginRight = 'auto';
+          line.style.display = 'block'; // Для центрирования
+      } else if (alignment === 'left') {
+          line.style.marginLeft = '0';
+          line.style.marginRight = 'auto';
+          line.style.display = 'block'; // Для выравнивания влево
+      } else if (alignment === 'right') {
+          line.style.marginLeft = 'auto';
+          line.style.marginRight = '0';
+          line.style.display = 'block'; // Для выравнивания вправо
+      }
+  }
+</script>
+
+</body>
+</html>

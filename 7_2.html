@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Скрытие элемента</title>
+  <style>
+    #text {
+        padding: 20px;
+        background-color: lightblue;
+        margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<button id="hideButton">Скрыть кнопку</button>
+
+<script>
+
+  const hideButton = document.getElementById('hideButton');
+
+  // Добавляем обработчик события нажатия на кнопку
+  hideButton.addEventListener('click', function() {
+      // Устанавливаем стиль display в 'none', чтобы скрыть элемент
+      hideButton.style.display = 'none';
+  });
+</script>

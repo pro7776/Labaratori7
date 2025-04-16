@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Скрытие элемента</title>
+  <style>
+    #text {
+        padding: 20px;
+        background-color: lightblue;
+        margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="text">Этот текст исчезнет при нажатии на кнопку.</div>
+<button id="hideButton">Скрыть текст</button>
+
+<script>
+  // Получаем элемент div и кнопку
+  const textDiv = document.getElementById('text');
+  const hideButton = document.getElementById('hideButton');
+
+  // Добавляем обработчик события нажатия на кнопку
+  hideButton.addEventListener('click', function() {
+      // Устанавливаем стиль display в 'none', чтобы скрыть элемент
+      textDiv.style.display = 'none';
+  });
+</script>
